@@ -1,0 +1,12 @@
+
+### Send POST request with body to create new patients
+POST http://localhost:4000/patients
+Content-Type: application/json
+
+{
+  "name": "Sorunke Hassan",
+  "address": "Olomore,Abeokuta,Ogun State",
+  "dateOfBirth": "2001-11-10",
+  "email": "hassan@gmail.com",
+  "registeredAddress": "2002-11-10"
+}

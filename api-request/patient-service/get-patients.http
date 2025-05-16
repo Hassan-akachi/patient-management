@@ -1,0 +1,5 @@
+### Delete the patient which id is provided
+# Delete by ID
+GET http://localhost:4000/patients
+
+###
