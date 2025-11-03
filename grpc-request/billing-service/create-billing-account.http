@@ -1,0 +1,9 @@
+### Using grpc to get billing data
+GRPC localhost:9001/BillingService/CreateBillingAccount
+#Content-Type: application/json
+
+{
+  "patientId" : "12345",
+  "name" : "Sorunke Hassan",
+  "email" : "hassansorunke@gmail.com"
+}

@@ -1,5 +1,5 @@
-### GET request to example server
-DELETE http://localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
-
+### Delete the patient which id is provided
+# Delete by ID
+DELETE http://localhost:4000/patients/a11432ee-8279-4f02-9ccb-153c278946a9
 
 ###

@@ -4,9 +4,9 @@ POST http://localhost:4000/patients
 Content-Type: application/json
 
 {
-  "name": "Sorunke Hassan",
+  "name": "Sorunke Hassan kafka test with analytics account",
   "address": "Olomore,Abeokuta,Ogun State",
   "dateOfBirth": "2001-11-10",
-  "email": "hassan@gmail.com",
+  "email": "hassanstestwithkafkaAnalytics@gmail.com",
   "registeredAddress": "2002-11-10"
 }
