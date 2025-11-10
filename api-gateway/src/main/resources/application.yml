@@ -1,0 +1,45 @@
+server:
+  port: 4004 # Gateway listens on port 4004
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        ## Auth Service Route
+        # External: http://localhost:4004/auth/login
+        # Internal: http://auth-service:4005/login
+        - id: auth-service-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1 # Removes "/auth" prefix when forwarding
+
+        ## Patient Service Route
+        # External: http://localhost:4004/api/patients
+        # Internal: http://patient-service:4000/patients
+        - id: patient-service-route
+          uri: http://patient-service:4000
+          predicates:
+            - Path=/api/patients/**
+          filters:
+            - StripPrefix=1 # Removes "/api/patients" prefix when forwarding
+            - JwtValidation # JWT validation filter (commented out)
+
+        ## API Documentation Route for Patient Service
+        # External: http://localhost:4004/api-docs/patients
+        # Internal: http://patient-service:4000/v3/api-docs
+        - id: api-docs-patient-route
+          uri: http://patient-service:4000
+          predicates:
+            - Path=/api-docs/patients
+          filters:
+            - RewritePath=/api-docs/patients,/v3/api-docs # Rewrites path for API docs
+
+        ## Auth Service API Docs (commented out - example for future use)
+        # - id: api-docs-auth-route
+        #   uri: http://auth-service:4005
+        #   predicates:
+        #     - Path=/api-docs/auth
+        #   filters:
+        #     - RewritePath=/api-docs/auth,/v3/api-docs
