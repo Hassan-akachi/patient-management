@@ -18,7 +18,8 @@ COPY src ./src
 # Package the application
 RUN mvn clean package -DskipTests
 
-FROM openjdk:21-jdk AS runner
+# === Run stage ===
+FROM eclipse-temurin:21-jdk AS runner
 
 WORKDIR /app
 
